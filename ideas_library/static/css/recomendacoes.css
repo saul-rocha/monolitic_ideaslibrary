@@ -1,0 +1,48 @@
+.recomendacoes {
+    flex-direction: column;
+}
+
+.recomendacoes, .botao, .botao button, .botao button a {
+    display: flex;
+}
+
+
+.botao, .botao button, .botao button a {
+    width: 100%;
+}
+
+.botao, .botao button, .botao button a {
+    justify-content: center;
+    align-items: center;
+} 
+
+.botao button {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 70px;
+    background-color: var(--amarelo);
+    border: var(--borda);
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.2s;
+}
+
+.botao button:hover {
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+}
+
+.botao button a svg {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.5s;
+}
+
+.botao button a {
+    height: 100%;
+    font-size: 1.3rem;
+}
+
+.botao button a svg:hover {
+    scale: 1.1;
+    rotate: 90deg;
+}
+

@@ -1,0 +1,93 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+
+{% block 'head' %}
+    <title>Perfil de {{user_profile.user}}</title>
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="perfil">
+            <div class="infos">
+                <div class="foto">
+                    <img width="100" height="100" src="{{user_profile.profileimage.url}}" alt="">
+                    <h1>{{ user_profile.user }}</h1>
+                </div>
+
+                <form action="/seguir" method="POST" >
+                    {% csrf_token %}
+                    <input type="hidden" name="follower" value="{{user.username}}">
+                    <input type="hidden" name="user" value="{{user_object.username}}">
+                    
+                    {% if outro %}
+                        <button class="botaoSeguir {{color}}" type="submit">
+                            {{button_text}}
+                        </button>
+                    {% else %}
+                        <div class="botaoSeguir azul">
+                            <a href="/settings" >
+                                <img src="https://img.icons8.com/ios-filled/150/settings.png" alt="settings"/>
+                                <p>Configurações</p>
+                            </a>
+                        </div>
+                    {% endif %}
+                </form>
+                
+                <div class="seguidores">
+                    <div class="segue">
+                        {% if user_followers == 0 or user_followers == 1 %}
+                        <span> {{user_followers}} seguidor </span>
+                        {% else %}
+                        <span> {{user_followers}} seguidores </span>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="segue">
+                        <span> {{user_following}} Seguindo</span>
+                    </div>
+                    
+                    <div class="segue">
+                        {% if user_post_length == 0 %}
+                        <h2>Este usuário ainda não postou nada</h2>
+                        {% elif user_post_length == 1 %}
+                        <span>{{user_post_length}} Recomendação</span>
+                        {% else %}
+                        <span>{{user_post_length}} Recomendações</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            {% if outro == False %}
+                <div class="botoesExtras">
+                    <button class="amarelo">
+                        <a href="\recomendar">Nova recomendação</a>
+                    </button>
+                </div>
+            {% endif %}
+            
+            <div class="cards">
+                {% for post in user_posts %}
+                <div class="card">
+                    <a href="/recomendacao/{{post.id}}">
+                        <div class="card-header">
+                            <img 
+                                src="{{post.image.url}}" 
+                                alt="{{post.nm_livro}}">
+                            
+                            <div class="alguem_recomendou">
+                                <h1>
+                                    {{post.nm_livro}}
+                                </h1>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            
+            
+    </div>
+{% endblock %}

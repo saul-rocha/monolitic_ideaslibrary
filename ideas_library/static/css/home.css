@@ -1,0 +1,91 @@
+.perfil {
+    margin-bottom: 25px;
+}
+
+.perfil, .perfil a {
+    display: flex;
+    /* border: 1px solid red; */
+    /* justify-content: center; */
+    align-items: center;
+    /* width: 100%; */
+}
+
+.perfil a {
+    padding: 5px 20px;
+    width: 300px;
+    border: var(--borda);
+    transition: var(--trans);
+}
+
+.perfil a:hover {
+    box-shadow: var(--sombra);
+    background-color: var(--amarelo);
+}
+
+
+.perfil img {
+    margin-right: 25px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* border: var(--borda); */
+}
+
+.postagem {
+    width: 48%;
+    display: flex;
+}
+
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--borda);
+    width: 100%;
+    transition: var(--trans);
+}
+
+.card:hover {
+    box-shadow: var(--sombra);    
+}
+
+
+.card-header {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.card a {
+    width: 100%;
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.card {
+    width: 100%;
+}
+
+.card {
+    margin-bottom: 15px;
+}
+
+.card img {
+    width: 200px;
+    object-fit: cover;
+    margin-right: 30px;
+}
+
+
+.alguem_recomendou {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50%;
+}

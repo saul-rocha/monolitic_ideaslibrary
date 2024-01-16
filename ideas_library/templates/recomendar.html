@@ -1,0 +1,35 @@
+{% extends 'base2.html' %}
+{% load static %}
+<!-- {% block title %}Criar Postagem{% endblock %} -->
+
+{% block 'head' %}
+
+    <title>Recomendar</title>
+    <link rel="stylesheet" href="{% static 'css/recomendacao.css' %}">
+{% endblock %}
+
+
+{% block 'conteudo' %}
+
+
+    <div class="recomendar">
+        <h1>Criar Postagem</h1>
+        <div class="formulario">    
+            <form action="{% url 'recomendar' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="inputs">
+                    <input type="text" name="livro" placeholder="Nome do Livro">
+                    <textarea name="review" id="" cols="30" rows="10" placeholder="Escreva sua review sobre esse livro"></textarea>
+                    <input type="text" name="link" placeholder="Link para o livro">
+                    <input type="file" name="image_upload">
+                </div>
+                
+                <div class="botoes">
+                    <button type="submit" class="verde">Publicar</button>
+                    <button class="vermelho"> <a href="/">Cancelar</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}

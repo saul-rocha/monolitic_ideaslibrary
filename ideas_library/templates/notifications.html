@@ -1,0 +1,86 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+    <title>Notificações</title>
+    <link rel="stylesheet" href="{% static 'css/notificacoes.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+    <h1>Notificações</h1>
+    <div class="notificacoes">
+
+        {% if notificacoes.nao_lidas.qnt > 0 %}
+            <div class="container">
+                <h2>{{notificacoes.nao_lidas.qnt}} Notificações Não Lidas</h2>
+                <ul>
+                    {% for notification in notificacoes.nao_lidas.notificacoes %}
+                        <li>
+                            {% if notification.verb == 'seguir' %}
+                                <img width="90" height="90" src="https://img.icons8.com/ios-glyphs/90/checked-user-male.png" alt="checked-user-male"/>
+                                <h3>Novo Seguidor</h3>
+                                <p>{{ notification.description }}</p>
+                            {% elif notification.verb == 'unfollow' %}
+                                <img src="https://img.icons8.com/external-creatype-outline-colourcreatype/64/external-people-user-interface-creatype-outline-colourcreatype.png" alt="external-people-user-interface-creatype-outline-colourcreatype"/>
+                                <h3>Deixou de te seguir</h3>
+                                <p>{{ notification.description }}</p>
+                            {% elif notification.verb == 'avaliation' %}
+                                <img src="https://img.icons8.com/ios-filled/100/thumb-up--v1.png" alt="thumb-up--v1"/>
+                                <h3>Curtidas</h3>
+                                <p>{{ notification.description }}</p>
+                            {% elif notification.verb == 'comentario' %}
+                                <img src="https://img.icons8.com/ios-glyphs/120/speech-bubble--v1.png" alt="speech-bubble--v1"/>
+                                <h3>Novo comentário</h3>
+                                <p>{{ notification.description }}</p>
+                            {% elif notification.verb == 'postagem' %}
+                                <img width="100" height="100" src="https://img.icons8.com/ios-filled/100/new.png" alt="new"/>
+                                <h3>Nova postagem</h3>
+                                <p>{{ notification.description }}</p>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+
+        <div class="container">
+            <h2>{{notificacoes.lidas.qnt}} Notificações Lidas</h2>
+            <ul>
+                {% for notification in notificacoes.lidas.notificacoes %}
+                    <li>
+                        {% if notification.verb == 'seguir' %}
+                            <img width="90" height="90" src="https://img.icons8.com/ios-glyphs/90/checked-user-male.png" alt="checked-user-male"/>
+                            <h3>Novo Seguidor</h3>
+                            <p>{{ notification.description }}</p>
+
+                        {% elif notification.verb == 'unfollow' %}
+                            <img src="https://img.icons8.com/external-creatype-outline-colourcreatype/64/external-people-user-interface-creatype-outline-colourcreatype.png" alt="external-people-user-interface-creatype-outline-colourcreatype"/>
+                            <h3>Deixou de te seguir</h3>
+                            <p>{{ notification.description }}</p>
+
+                        {% elif notification.verb == 'avaliation' %}
+                            <img src="https://img.icons8.com/ios-filled/100/thumb-up--v1.png" alt="thumb-up--v1"/>
+                            <h3>Curtidas</h3>
+                            <p>{{ notification.description }}</p>
+
+                        {% elif notification.verb == 'comentario' %}
+                            <img src="https://img.icons8.com/ios-glyphs/120/speech-bubble--v1.png" alt="speech-bubble--v1"/>
+                            <h3>Novo comentário</h3>
+                            <p>{{ notification.description }}</p>
+
+                        {% elif notification.verb == 'postagem' %}
+
+                            <img width="100" height="100" src="https://img.icons8.com/ios-filled/100/new.png" alt="new"/>
+                            <h3>Nova postagem</h3>
+                            <p>{{ notification.description }}</p>
+
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}

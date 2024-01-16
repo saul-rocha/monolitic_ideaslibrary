@@ -1,0 +1,178 @@
+/* .perfil {
+    border: 1px solid red;
+} */
+
+/* .cards, .card {
+    border: 1px solid red;
+} */
+
+.infos, 
+.infos .foto, 
+.infos .seguidores, 
+.infos .seguidores .segue,
+.cards a  {
+    width: 100%;
+}
+
+.infos, 
+.infos .foto, 
+.infos .seguidores, 
+.infos .seguidores .segue,
+.cards, 
+.card,
+.card-header,
+.alguem_recomendou{
+    display: flex;
+}
+
+.infos, 
+.infos .foto,
+.alguem_recomendou {
+    flex-direction: column;
+}
+
+.infos, 
+.infos .foto, 
+.infos .seguidores, 
+.infos .seguidores .segue,
+.alguem_recomendou  {
+    justify-content: center;
+}
+
+.infos, 
+.infos .foto {
+    align-items: center;
+}
+
+.infos .foto, 
+.infos .seguidores {
+    width: 50%;
+}
+
+.infos .foto img {
+    margin-bottom: 10px;
+}
+
+
+.infos .foto, 
+.infos .seguidores {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.infos .seguidores .segue span {
+    font-size: 1.3rem;
+}
+
+.infos {
+    margin-bottom: 70px;
+}
+
+.cards {
+    flex-wrap: wrap;
+}
+
+.card,
+.card-header img,
+.botaoSeguir,
+.botoesExtras button {
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.2s;
+}
+
+.card:hover, 
+.botaoSeguir:hover,
+.botoesExtras button:hover {
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+}
+
+.card:hover {
+    background-color: white;
+    font-size: 1.1rem;
+}
+
+.cards {
+    justify-content: space-between;
+}
+
+.card a {
+    padding: 14px;
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    border: var(--borda);
+}
+
+.card {
+    width: 48%;
+}
+
+.card {
+    margin-bottom: 15px;
+}
+
+.card-header img {
+    object-fit: cover;
+    width: 150px;
+}
+
+.alguem_recomendou {
+    align-items: right;
+}
+
+.alguem_recomendou p {
+    font-size: 1.3rem;
+
+}
+
+.alguem_recomendou {
+    margin-left: 20px;
+}
+
+.botaoSeguir {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    width: 250px;
+    
+    font-size: 1.3rem;
+    border: var(--borda);
+}
+
+.botaoSeguir, .botaoSeguir a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botaoSeguir {
+    min-height: 60px;
+}
+
+.botaoSeguir img {
+    width: 35px;
+    margin-right: 10px;
+    height: 35px;
+}
+
+.botaoSeguir a {
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+.botoesExtras {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.botoesExtras button {
+    width: 300px;
+    height: 50px;
+    font-size: 1.2rem;
+    border: var(--borda);
+}
+
+

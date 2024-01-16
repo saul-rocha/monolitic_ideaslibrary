@@ -1,0 +1,210 @@
+:root {
+    --azul: rgb(143, 255, 221);
+    --amarelo: #FFE27C;
+    --vermelho: #FF9797;
+    --verde: rgb(216, 255, 153);
+    --borda: 3px solid black;
+    --trans: cubic-bezier(0.215, 0.610, 0.355, 1) 0.3s;
+    --sombra: 5px 5px 0px 0px rgba(0,0,0,1);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit; /* Define a cor do texto como a cor padrão herdada */
+    text-decoration: none; /* Remove sublinhado padrão */
+}
+
+
+.conteudo {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.contentCentro {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+mark {
+    background-color: var(--vermelho);
+    color: black;
+}
+
+textarea {
+    /* Redefine todos os estilos para os valores padrão */
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    /* Adicione outros estilos conforme necessário */
+}
+
+
+.botaoCancelar, .botaoSalvar {
+    min-width: 200px;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 10px;
+    border: var(--borda);
+}
+
+.botaoCancelar, 
+.botaoSalvar,
+.verde,
+.vermelho {
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.3s;
+}
+
+.botaoCancelar:hover, .botaoSalvar:hover, .vermelho:hover, .verde:hover {
+    /* transform: scale(1.1); */
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+}
+
+
+
+.botaoCancelar, .vermelho {
+    background-color: var(--vermelho);
+}
+
+.botaoSalvar, .verde {
+    background-color: var(--verde);
+}
+
+.amarelo {
+    background-color: var(--amarelo);
+}
+
+.azul {
+    background-color: var(--azul);
+}
+
+
+header {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 50px;
+    padding-top: 25px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav, header nav ul, header nav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+header nav {
+    width: 65%;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+header nav ul {
+    height: 50px;
+    align-items: center;
+}
+
+header nav ul {
+    width: 100%;
+}
+
+header nav ul li {
+    width: 100%;
+    margin: 0px;
+    justify-content: center;
+    /* transition: ease-in-out 0.2s; */
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.2s;
+    border-radius: 5px;
+}
+
+header nav ul li a {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+header nav ul li:hover {
+    /* width: calc(100% - 9px); */
+    background-color: var(--amarelo);
+    /* border: var(--borda); */
+}
+
+.buscar {
+    display: flex;
+    /* border: 1px solid red; */
+    width: 30%;
+}
+
+.buscar input {
+    height: 50px;
+    border-left: var(--borda);
+    border-top: var(--borda);
+    border-bottom: var(--borda);
+    border-right: none;
+    width: 350px;
+    padding: 0px 10px;
+    font-size: 1rem;
+}
+
+.buscar input:focus {
+    outline: none;
+}
+
+
+.buscar button {
+    width: 70px;
+    border-left: none;
+    border-top: var(--borda);
+    border-bottom: var(--borda);
+    border-right: var(--borda);
+    /* background-color:kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk var(--azul); */
+    background-color: white;
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.2s;
+}
+
+.buscar button img {
+    width: 30px;
+    height: 30px;
+}
+
+.buscar button:hover {
+    background-color: #FFE27C;
+}
+

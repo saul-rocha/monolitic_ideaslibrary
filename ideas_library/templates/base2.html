@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,400;0,600;0,700;1,100;1,200;1,400;1,600;1,700&family=Outfit:wght@100;200;300;400;500;800&family=Young+Serif&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block 'head' %} {% endblock %}
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'recomendacoes' %}">Recomendações</a></li>
+                <!-- <li><a href="{% url 'home' %}">Livros</a></li> -->
+                <li><a href="{% url 'notifications' %}">Notificações</a></li>
+                <li><a href="{% url 'perfil' user.username %}">Perfil</a></li>
+                <li><a href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </nav>
+        <form class="buscar" action="/buscar" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Buscar por usuário" autocomplete="off">
+            <button type="submit">
+                <!-- Buscar -->
+                <img src="https://img.icons8.com/ios-filled/100/search--v1.png" alt="search--v1"/>
+            </button>
+        </form>
+    </header>
+
+    <div class="content">
+        <div class="contentCentro">
+            {% block 'conteudo' %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+</body>
+
+</html>

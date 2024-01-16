@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Página Inicial{% endblock %}
+
+{% block 'conteudo' %}
+<div>
+    <!-- mostra a foto do perfil do usuario se tiver logado-->
+    {% if user.is_authenticated %}
+    <a href="/perfil/{{user}}">
+        <img width="100" height="100" src="{{ user_profile.profileimage.url }}" alt="">
+    </a>
+    <br>
+    {% endif %}
+
+    <!-- posts -->
+    {% for post in posts reversed %}
+    <div>
+        <div>
+            <span><a href="/perfil/{{ post.user }}">@{{ post.user }}</a></span>
+        </div>
+    </div>
+
+    <div>
+        <a href="{{ post.image.url }}">
+            <img width="300" height="500" src="{{ post.image.url }}" alt="">
+        </a>
+        <h3>{{ post.nm_livro }}</h3>
+        <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer">
+            <h4>Link para o livro</h4>
+        </a>
+        <a>Review feito em: <b>{{ post.created_at }}</b></a>
+    </div>
+
+    <div>
+        <h3>Review</h3>
+        <p>{{ post.review }}</p>
+    </div>
+
+    <div>
+        <h2>Avalie este item</h2>
+        <a href="/avaliacao?post_id={{post.id}}">
+            <div>
+                <img width="50" height="50" src="{% static 'images/gostar.png' %}" alt="">
+            </div>
+            {% if post.avaliation == 0 %}
+            <p>Sem curtidas ainda</p>
+            {% elif post.avaliation == 1%}
+            <p>Curtida por {{ post.avaliation }} pessoa</p>
+            {% else %}
+            <p>Curtida por {{ post.avaliation }} pessoas</p>
+            {% endif %}
+        </a>
+    </div>
+
+    <div>
+        <h3>Comentários:</h3>
+        <ul>
+            {% for comment in post.comentario_set.all reversed%}
+            <p>{{ comment.username }}: {{ comment.comentario }} {{comment.created_at}}</p>
+            {% endfor %}
+        </ul>
+
+        <form method="post" action="{% url 'comentario' %}?post_id={{ post.id }}">
+            {% csrf_token %}
+            <label for="comentario">Adicionar Comentário:</label>
+            <textarea name="comentario" id="comment_text" cols="30" rows="3"></textarea>
+            <button type="submit">Enviar Comentário</button>
+        </form>
+    </div>
+
+    {% endfor %}
+
+
+    <!-- sugestoes para seguir -->
+    {% for suggestion in suggestions_username_profile_list %}
+
+    <div>
+        <a href="/perfil/{{suggestion.user}}">
+            <img src="{{suggestion.profileimage}}" alt="">
+        </a>
+        <div>
+            <span>{{suggestion.user}}</span>
+        </div>
+
+        <a href="/perfil/{{suggestion.user}}">Ver perfil</a>
+    </div>
+    {% endfor %}
+    </script>
+    <!-- Conteúdo específico da página inicial -->
+{% endblock %}

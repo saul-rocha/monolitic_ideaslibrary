@@ -1,0 +1,23 @@
+{% extends 'base2.html' %}
+
+{% block 'head' %}
+<title>Home</title>
+{% endblock %}
+
+{% block 'conteudo' %}
+
+<section>
+    {% for users in username_profile_list %}
+    <a href="/perfil/{{users.user}}">
+        <img width="30" height="30" src={{users.profileimage.url}}>
+    </a>
+
+    <div>
+        <h4><a href="/perfil/{{users.user}}">{{ users.username }}</a></h4>
+    </div>
+
+    {% endfor %}
+</section>
+
+
+{% endblock %}

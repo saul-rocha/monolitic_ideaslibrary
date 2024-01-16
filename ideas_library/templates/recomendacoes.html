@@ -1,0 +1,56 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <title>Recomendações</title>
+    <link rel="stylesheet" href="{% static 'css/recomendacoes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="recomendacoes">
+
+        <!-- <h1>Recomendações</h1> -->
+        
+        <div class="botao">
+            <button>
+                <a href="{% url 'recomendar' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                        <path d="M25,2C12.317,2,2,12.317,2,25s10.317,23,23,23s23-10.317,23-23S37.683,2,25,2z M37,26H26v11h-2V26H13v-2h11V13h2v11h11V26z"></path>
+                    </svg>
+                    Recomendar
+                </a>
+            </button>
+        </div>
+        
+        {% if qnt == 0 %}
+            <h3>Não há recomendações publicadas!</h3>
+        {% else %}
+            <div class="cards">
+                    
+                {% for post in posts %}
+                    <div class="card">
+                        <a href="/recomendacao/{{post.id}}">
+                            <div class="card-header">
+                                <img 
+                                src="{{post.image.url}}" 
+                                alt="{{post.nm_livro}}"
+                                >
+                                
+                                <div class="alguem_recomendou">
+                                    <p><b>{{post.user}}</b> recomendou:</p> 
+                                    <h1>{{post.nm_livro}}</h1>
+                                </div>
+                                
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+        {% endif %}
+        
+    </div>
+{% endblock %}

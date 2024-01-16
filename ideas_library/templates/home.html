@@ -1,0 +1,111 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+
+{% block 'conteudo' %}
+<div>
+    <!-- mostra a foto do perfil do usuario se tiver logado-->
+    {% if user.is_authenticated %}
+
+    <div class="perfil">
+        <a href="/perfil/{{user}}">
+            <img src="{{ user_profile.profileimage.url }}" alt="">
+            <h3>Bem vindo, {{user}}!</h3>
+        </a>
+    </div>
+
+    {% endif %}
+
+    <!-- posts -->
+    <h1 style="margin-bottom: 25px; margin-top: 50px;">Posts</h1>
+    
+    {% for post in posts reversed %}
+
+    
+
+    <div class="postagem">
+
+        <div class="card">
+            <a href="/recomendacao/{{post.id}}">
+                <div class="card-header">
+                    <img 
+                        src="{{post.image.url}}" 
+                        alt="{{post.nm_livro}}">
+                    
+                    <div class="alguem_recomendou">
+                        <p>@{{post.user}}</p>
+                        <h1>{{post.nm_livro}}</h1>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- <div>
+            <div>
+                <span>
+                    <a href="/perfil/{{ post.user }}">@{{ post.user }}</a>
+                </span>
+            </div>
+        </div>
+    
+        <div>
+            <a href="{{ post.image.url }}">
+                <img width="300" height="500" src="{{ post.image.url }}" alt="">
+            </a>
+            <h3>{{ post.nm_livro }}</h3>
+            <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer">
+                <h4>Link para o livro</h4>
+            </a>
+            <a>Review feito em: <b>{{ post.created_at }}</b></a>
+        </div>
+    
+        <div>
+            <h3>Review</h3>
+            <p>{{ post.review }}</p>
+        </div>
+    
+        <div>
+            <h2>Avalie este item</h2>
+            <a href="/avaliacao?post_id={{post.id}}">
+                <div>
+                    <img width="50" height="50" src="{% static 'images/gostar.png' %}" alt="">
+                </div>
+                {% if post.avaliation == 0 %}
+                <p>Sem curtidas ainda</p>
+                {% elif post.avaliation == 1%}
+                <p>Curtida por {{ post.avaliation }} pessoa</p>
+                {% else %}
+                <p>Curtida por {{ post.avaliation }} pessoas</p>
+                {% endif %}
+            </a>
+        </div> -->
+
+    </div>
+
+
+    {% endfor %}
+
+
+    <!-- sugestoes para seguir -->
+    {% for suggestion in suggestions_username_profile_list %}
+
+    <div>
+        <a href="/perfil/{{suggestion.user}}">
+            <img src="{{suggestion.profileimage}}" alt="">
+        </a>
+        <div>
+            <span>{{suggestion.user}}</span>
+        </div>
+
+        <a href="/perfil/{{suggestion.user}}">Ver perfil</a>
+    </div>
+    {% endfor %}
+    </script>
+    <!-- Conteúdo específico da página inicial -->
+{% endblock %}

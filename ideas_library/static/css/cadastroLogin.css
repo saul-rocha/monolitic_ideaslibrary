@@ -1,0 +1,70 @@
+form {
+    border: var(--borda);
+    width: 450px;
+    min-height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form h2 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+form input, form button {
+    width: calc(85% - 6px); /* Levando em consideração a largura da borda (3px em cada lado) */
+    padding: 0px;
+    border: 3px solid black;
+    box-sizing: border-box; /* Garante que o tamanho total considera a espessura da borda */
+    margin-bottom: 10px; /* Adicionei um espaçamento entre os elementos */
+    display: block; /* Para que cada elemento ocupe toda a largura disponível */
+    padding: 15px;
+}
+
+form input:focus {
+    border-radius: 0px;
+    outline: none;
+}
+
+.botaoLogin {
+    background-color: var(--amarelo);
+}
+
+.botaoCadastrar {
+    background-color: var(--azul);
+}
+
+.mensagem {
+    margin-top: 30px;
+}
+
+.botaoLogin, .botaoCadastrar, form input {
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.2s;
+}
+
+
+.botaoLogin:hover, .botaoCadastrar:hover, form input:focus {
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+}
+
+.erro {
+    list-style: none; /* Remove o marcador (bullet point) */
+    padding: 0; /* Remove o espaçamento interno (padding) */
+    margin: 0; /* Remove o espaçamento externo (margin) */
+    margin-bottom: 10px;
+
+    width: 450px;
+    border: var(--borda);
+    background-color: var(--vermelho);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+

@@ -1,0 +1,37 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+
+
+{% block 'head' %} 
+    <title>Configurações</title> 
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+    <!-- <a href="\">Início</a>/ Configurações da conta para <b>{{ user.username }}</b> -->
+    <!-- <br> -->
+    <!-- <hr> -->
+    
+    <div class="edicao">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Geral</h1>
+            <div class="imagem">
+                <label for="">Foto de Perfil:</label>
+                <img width="100" height="100" src="{{ user_profile.profileimage.url }}" />
+                <input type="file" name="image" value="{{user_profile.profileimage}}"> <br>
+            </div>
+
+            <div class="botoes">
+                <button class="botaoSalvar" type="submit">Salvar</button>
+                <button class="botaoCancelar"><a href="/">Cancelar</a></button>
+            </div>
+        </form>
+    </div>
+
+    <!-- <h1>Form para informações </h1> -->
+    <!-- Conteúdo específico da página inicial -->
+
+{% endblock %}

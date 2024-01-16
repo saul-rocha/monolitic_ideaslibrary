@@ -1,0 +1,143 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+    <title>Recomendação</title>
+    <link rel="stylesheet" href="{% static 'css/recomendacao.css' %}">
+{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="recomendacao">
+
+        <div class="perfil">
+            <a href="{% url 'perfil' user_profile %}">
+                <img src="{{user_profile.profileimage.url}}" alt="">
+                
+                <div class="infos_perfil">
+                    <h3>{{ post.user }} recomendou</h3>
+                </div>
+            </a>
+        </div>
+
+        <div class="livro">
+
+            <div class="imagem">
+                <img src="{{post.image.url}}" alt="{{post.nm_livro}}">
+            </div>
+
+            <div class="infos_livro">
+
+                <h2>{{ post.nm_livro }}</h2>
+
+                <div class="avaliacao">
+                    <a class="" href="/avaliacao/?post_id={{post.id}}">
+                        <img src="{% static 'images/gostar.png' %}" alt="">
+                        <div class="pessoas">
+                            {% if post.avaliation == 0 %}
+                                <p>Sem curtidas ainda</p>
+                            {% elif post.avaliation == 1%}
+                                <p>Curtida por {{ post.avaliation }} pessoa</p>
+                            {% else %}
+                                <p>Curtida por {{ post.avaliation }} pessoas</p>
+                            {% endif %}
+                        </div>
+                    </a>
+                </div>
+
+                <div class="link">
+                    <a href="{{ post.link }}" target="_blank" rel="noopener noreferrer" class="amarelo">
+                        <img src="https://img.icons8.com/ios/50/external-link-squared.png" alt="external-link-squared"/>
+                        <h4>Link para o livro</h4>
+                    </a>
+                </div>
+
+                <!-- Se o autor da recomendação for o proprio usuário -->
+                {% if ehDoUser %}
+
+                    <div class="link">
+                        <a href="" class="azul">
+                            <!-- <img src="https://img.icons8.com/ios/50/external-link-squared.png" alt="external-link-squared"/> -->
+                            <img src="https://img.icons8.com/ios/50/edit--v1.png" alt="edit--v1"/>
+                            <h4>Editar</h4>
+                        </a>
+                    </div>
+
+                    <div class="link">
+                        <a href="" class="vermelho">
+                            <img src="https://img.icons8.com/ios/50/delete-sign--v1.png" alt="delete-sign--v1"/>
+                            <h4>Apagar</h4>
+                        </a>
+                    </div>
+
+                {% endif %}
+
+                <div class="data">
+                    <p>Review feita em: <b>{{ post.created_at }}</b></p>
+                </div>
+
+                
+
+            </div>
+        </div>
+
+        <div class="review">
+            <div class="titulo"><h1>Review</h1></div>
+            <div class="texto"><p>{{ post.review }}</p></div>
+        </div>
+
+        
+
+        <div class="comentarios">
+            <div class="titulo">
+                <div class="title">
+                    <h1>Comentários:</h1>
+                </div>
+                <a class="link" href="#novo_comentario">
+                    <h4>Novo Comentário</h4>
+                </a>
+            </div>
+
+            {% if qntComentarios > 0 %}
+                <div class="coments">
+                    {% for comment in comentarios%}
+                        <div class="comentario">
+                            <div class="coluna1">
+                                <h2 class="username">{{ comment.username }}</h2>
+                                <p class="comentario_data">{{comment.created_at}}</p>
+                            </div>
+
+                            <div class="coluna2">
+                                <p class="comentario_texto">
+                                    {{ comment.comentario }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="coments">
+                    <mark style="background-color: var(--amarelo);">
+                        <h4 class="sem_comentarios">Não há comentários ainda.</h4>
+                    </mark>
+                </div>
+            {% endif %}
+
+            <form id="novo_comentario" method="post" action="{% url 'comentario' %}?post_id={{ post.id }}">
+                <h1>Novo Comentário</h1>
+                {% csrf_token %}
+                <!-- <label for="comentario">Adicionar Comentário:</label> -->
+                <div class="antes_escrever">
+
+                    <div class="escrever">
+                        <textarea name="comentario" id="comment_text" cols="30" rows="3" placeholder="Escreva seu comentário aqui."></textarea>
+                        <button type="submit">Enviar Comentário</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

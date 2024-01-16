@@ -1,0 +1,395 @@
+.recomendacao,
+.perfil,
+.perfil a,
+.livro,
+.livro .imagem,
+.perfil .infos_perfil,
+.livro .infos_livro .link,
+.review, 
+.livro .infos_livro .link a,
+.comentarios,
+.coments,
+.comentario,
+.comentario .coluna1,
+.comentario .coluna2,
+#novo_comentario,
+.comentarios .titulo,
+.recomendar,
+.formulario,
+.recomendar form {
+    display: flex;
+}
+
+.perfil,
+.livro .imagem,
+.comentarios h1,
+#novo_comentario {
+    margin-bottom: 50px;
+}
+
+#novo_comentario {
+    margin-top: 50px;
+}
+
+.livro, 
+.review, 
+.comentarios, 
+.coments, 
+.comentario 
+.coluna1, 
+#novo_comentario,
+.recomendar,
+.formulario,
+.recomendar form  {
+    flex-direction: column;
+}
+
+.recomendacao {
+    flex-wrap: wrap;
+}
+
+.perfil,
+.perfil a,
+.coments, 
+#novo_comentario,
+.comentarios,
+.formulario {
+    width: 100%;
+}
+
+.perfil img, 
+.perfil .infos_perfil {
+    margin-right: 15px;
+}
+
+.perfil img {
+    width: 50px;
+    height: 50px;
+}
+
+.perfil img {
+    margin-right: 10px;
+}
+
+.perfil,
+.perfil a,
+.livro,
+.livro .infos_livro .link,
+.review,
+.coments,
+.comentario,
+.formulario {
+    align-items: center;
+}
+
+.livro .imagem,
+.livro .infos_livro,
+.livro .infos_livro .link,
+.coments,
+#novo_comentario {
+    justify-content: center;
+}
+
+.livro {
+    width: 35%;
+}
+
+
+.livro .imagem, 
+.livro .infos_livro {
+    width: 90%;
+}
+
+.livro .infos_livro {
+    font-size: 1.3rem;
+}
+
+.livro .infos_livro h1 {
+    font-weight: bold;
+}
+
+.livro .infos_livro .data {
+    font-size: 1rem;
+}
+
+.livro .infos_livro h2 {
+    text-align: center;
+}
+
+.livro .infos_livro .link {
+    font-size: 1.3rem;
+}
+
+.livro .infos_livro .link a {
+    margin-top: 15px;
+    /* margin-bottom: 10px; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 60%;
+    /* background-color: var(--amarelo); */
+    border: var(--borda);
+    justify-content: center;   
+}
+
+
+.livro .infos_livro .data {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.perfil a:hover {
+    font-size: 1.1rem;
+}
+
+.livro 
+.infos_livro .link a, 
+.comentario, 
+.escrever button, 
+.escrever textarea,
+.comentarios .titulo .link,
+.perfil a {
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.2s;
+}
+
+
+.livro 
+.infos_livro 
+.link a:hover, 
+.comentario:hover, 
+.escrever button:hover,
+.comentarios .titulo .link:hover {
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+}
+
+.livro .infos_livro .link img {
+    margin-right: 10px;
+    width: 30px;
+}
+
+.livro .imagem img {
+    object-fit: cover;
+    width: 300px;
+}
+
+.review {
+    width: 65%;
+}
+
+.review .titulo, .review .texto {
+    width: 80%;
+}
+
+.review .titulo {
+    margin-bottom: 15px;
+}
+
+.review .texto {
+    font-weight: 300;
+    font-size: 1.4rem;
+    text-align: justify;
+}
+
+
+.comentarios {
+    margin-top: 75px;
+}
+
+.comentario {
+    width: calc(75% - 100px);
+    margin-bottom: 20px;
+    min-height: 100px;
+    border: var(--borda);
+    padding: 25px 50px;
+}
+
+
+
+.comentario .coluna1 {
+    width: 30%;
+    margin-right: 50px;
+}
+
+.comentario .coluna2 {
+    width: 60%;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.antes_escrever {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.escrever {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.escrever textarea, .recomendar .formulario textarea {
+    width: calc(100% - 30px);
+    min-height: 300px;
+    margin-bottom: 25px;
+    border: var(--borda);
+    font-size: 1.2rem;
+    padding: 15px;
+}
+
+.escrever textarea:focus {
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+    margin-bottom: 30px;
+}
+
+
+.escrever button {
+    border: var(--borda);
+    background-color: var(--amarelo);
+    width: 25%;
+    padding: 15px 0px;
+    font-size: 1.2rem;
+}
+
+#novo_comentario {
+    margin-bottom: 100px;
+}
+
+
+.comentarios .titulo {
+    justify-content: space-between;
+    margin-bottom: 50px;
+    align-items: center;
+}
+
+.comentarios .titulo .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    border: var(--borda);
+    height: 50px;
+    margin-right: 10px;
+    background-color: var(--amarelo);
+}
+
+.comentarios .titulo .link a {
+    width: 100%;
+}
+
+.comentarios .titulo .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.comentarios .titulo .title h1 {
+    margin-bottom: 0px;
+}
+
+.recomendar form {
+    width: 80%;
+}
+
+.recomendar h1 {
+    margin-bottom: 50px;
+}
+
+
+.recomendar .formulario .inputs {
+    display: flex;  
+    flex-direction: column;
+}
+
+.recomendar .formulario .inputs input[type="text"] {
+    border: var(--borda);
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+}
+
+.recomendar .formulario .inputs input[type="text"], 
+.recomendar .formulario .inputs input[type="file"] {
+    padding: 15px;
+    width: calc(100% - 30px);
+}
+
+.recomendar .formulario .inputs input[type="file"] {
+    margin-bottom: 50px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.formulario {
+    margin-bottom: 100px;
+}
+
+.recomendar .botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recomendar .botoes button {
+    margin-right: 25px;
+    font-size: 1.3rem;
+    padding: 15px;
+    width: 250px;
+    border: var(--borda);
+}
+
+
+.link a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.avaliacao, .avaliacao a, .avaliacao .pessoas{
+    display: flex;
+}
+
+.avaliacao {
+    width: 100%;
+}
+
+.avaliacao {
+    margin-top: 15px;
+}
+
+.avaliacao, .avaliacao a {
+    justify-content: center;
+    align-items: center;
+}
+
+.avaliacao a {
+    
+    /* border: 1px solid blue; */
+    border: var(--borda);
+    width: 60%;
+    padding: 15px 0px;
+
+}
+
+.avaliacao img, .avaliacao .pessoas {
+    /* border: 1px solid green; */
+    height: 30px;
+}
+
+.avaliacao .pessoas {
+    align-items: flex-end;
+}
+
+.avaliacao img {
+    width: 30px;
+    margin-right: 10px;
+}
+
