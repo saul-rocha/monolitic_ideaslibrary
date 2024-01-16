@@ -1,34 +1,34 @@
 from pathlib import Path
 # importar env
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(BASE_DIR / '.env')
+# load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 SECRET_KEY = 'django-insecure-at!mi-^%7sg_$mi)t$gpo+59%zqerv(_x^^s-_u6p8tupw*e-b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
+DEBUG = 1
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
-
-# CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
-
-# SECURE_SSL_REDIRECT = \
-# os.getenv('SECURE_SSL_REDIRECT', '0').lower() in ['true', 't', '1']
-# if SECURE_SSL_REDIRECT:
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS += [
+    
+]
+# ALLOWED_HOSTS.extend(
+#     filter(
+#         None,
+#         os.environ.get('ALLOWED_HOSTS', '').split(','),
+#     )
+# )
 
 # Application definition
 
@@ -82,12 +82,22 @@ WSGI_APPLICATION = 'ideas_library.wsgi.application'
 
 # print("-----> A senha é ", os.environ['DB_PASSWORD'])
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST': os.environ.get('DB_HOST'),
+#         'NAME': os.environ.get('DB_NAME'),
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASS'),
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
