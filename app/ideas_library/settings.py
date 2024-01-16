@@ -21,7 +21,7 @@ DEBUG = 1
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 ALLOWED_HOSTS += [
-    
+    '15.228.77.129'
 ]
 # ALLOWED_HOSTS.extend(
 #     filter(
